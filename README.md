@@ -39,3 +39,5 @@ The Excel template is the user's supplied form, sanitized of sample identity, ac
 v0.4 adds embedded PNG signatures in Excel, shared custom activity codes, compact expandable activity rows, and automatic server-side encryption for private payloads. See `docs/VPS.md` for key backup/recovery and exact security boundaries. The master encryption key must never be committed to Git.
 
 v0.5 adds Edit and Delete for built-in and custom Attendance & absence types, with retained historical row definitions and removal of the requested security-notice sentence.
+
+v0.6 streamlines the workspace: add activity and new period forms open on demand, period/status actions share one toolbar, the duplicate period card is removed, security details collapse, and password-change/reset fields have reveal controls.
