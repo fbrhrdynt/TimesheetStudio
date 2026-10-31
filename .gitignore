@@ -45,3 +45,6 @@ yarn-error.log*
 .DS_Store
 /data/
 !/.env.example
+
+# Private encryption key material
+*.key

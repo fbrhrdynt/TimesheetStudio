@@ -35,3 +35,5 @@ Run backend checks with `npm test` on Node 24+. They cover first-password enforc
 `public/` is the browser app and template assets. `server/core.mjs` is the shared authentication/data API. `server/node.mjs` provides the VPS HTTP/SQLite/SMTP adapters. `drizzle/` contains schema migrations. `deploy/` contains systemd and Nginx examples. Runtime records and secrets must remain outside source control.
 
 The Excel template is the user's supplied form, sanitized of sample identity, activity entries and signature. Company marks remain the property of their owners; each user can upload their own logo.
+
+v0.4 adds embedded PNG signatures in Excel, shared custom activity codes, compact expandable activity rows, and automatic server-side encryption for private payloads. See `docs/VPS.md` for key backup/recovery and exact security boundaries. The master encryption key must never be committed to Git.

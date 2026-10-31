@@ -1,0 +1,12 @@
+
+## Encryption and key recovery (v0.4)
+
+Private documents, timesheet payloads (including profile, logo and signature), audit snapshots and edit reasons use AES-256-GCM at rest. HKDF derives an account-specific key from the master key; authenticated context binds each encrypted value to its account/table/column. Each write uses a fresh nonce. Authentication and owner filters still enforce access independently of encryption.
+
+The Node service automatically creates `DATA_DIR/encryption.key` with permissions 0600 on first start, unless `DATA_ENCRYPTION_KEY` is configured as base64 containing 32 random bytes. Keep DATA_DIR outside the public directory and repository. Back up the key separately from database backups; restore both together. Do not replace the key to rotate it: existing records require their original key. Startup refuses to create a replacement if encrypted records exist. An incorrect key fails closed. Loss of the key makes encrypted data unrecoverable.
+
+Existing plaintext records are encrypted on VPS startup. On hosted Workers, each account's existing records are encrypted on its first authenticated data request; inactive accounts migrate when next opened. Old backups may still contain plaintext and must be protected or retired separately. Existing revision numbers, statuses and timestamps are preserved during migration. SQLite/WAL free pages may retain older bytes until a controlled maintenance/vacuum and backup-retention process; do not represent this as erasing past plaintext copies.
+
+Names, emails, usernames, authentication hashes, dates/statuses and account management metadata are not covered by payload encryption. Shared Activity Reference entries are intentionally available to every active account. This is server-side encryption, not end-to-end encryption: a server operator with the key can decrypt payloads. Downloads (XLSX/PDF/PNG/JSON) are unencrypted. Configure HTTPS at the reverse proxy, restrict database/key access, and protect exported files.
+
+All active accounts may add a unique four-digit activity code with name, category and unit. Additions appear for every account, while each account/period retains its own seven selected rows. Existing reference codes cannot be overwritten. Invitations contain a privacy notice, also shown on first workspace entry and under Account & Security. SMTP delivery requires your configured SMTP service.
