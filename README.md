@@ -41,3 +41,5 @@ v0.4 adds embedded PNG signatures in Excel, shared custom activity codes, compac
 v0.5 adds Edit and Delete for built-in and custom Attendance & absence types, with retained historical row definitions and removal of the requested security-notice sentence.
 
 v0.6 streamlines the workspace: add activity and new period forms open on demand, period/status actions share one toolbar, the duplicate period card is removed, security details collapse, and password-change/reset fields have reveal controls.
+
+v0.6.1 separates saved-period selection into account-specific year and month filters. Only saved years/months appear; a range selector is shown only when the selected start month contains multiple periods. Cross-month periods are grouped by their start date.
