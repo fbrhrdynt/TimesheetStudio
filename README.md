@@ -1,6 +1,6 @@
 # Timesheet Studio
 
-Personal timesheets with a private account for each user, an administrator-managed invitation flow, and Excel/PDF exports based on the supplied company template.
+Version 0.3.0. Personal timesheets with a private account for each user, an administrator-managed invitation flow, and Excel/PDF exports based on the supplied company template.
 
 ## Features
 
@@ -11,7 +11,9 @@ Personal timesheets with a private account for each user, an administrator-manag
 - Seven configurable activity rows from A29–A55; multiple activities per day.
 - Visible required Remote Location Bonus and Explanation on each date; optional manual regular hours, overtime, start and end times.
 - POH only in H22; blank receiving cost center unless explicitly set; editable and confirmed suggestion for field-location days.
-- Excel keeps original row/column geometry and merges; images retain aspect ratio; PDF preview and output, JSON backup/restore.
+- Each period is saved independently with its own profile/activity snapshot, monthly history, personal Draft/Sent/Approved status, justified edits and audit snapshots.
+- One `.xlsx` file and one worksheet for up to 31 days; correct Excel MIME for Safari downloads. Existing columns/row geometry and merges are retained, with a matching AL column for the 31st day. PDF uses one fitted landscape page.
+- Sent and Approved are read-only until explicitly reopened with a reason; reopening Approved additionally requires an urgent-edit confirmation. No status sends email to a manager.
 
 ## Run on a VPS
 
