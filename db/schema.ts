@@ -10,3 +10,5 @@ export const timesheetEvents=sqliteTable('timesheet_events',{id:text('id').prima
 
 export const activityCodes=sqliteTable('activity_codes',{code:text('code').primaryKey(),name:text('name').notNull(),kind:text('kind').notNull(),unit:text('unit').notNull(),createdBy:text('created_by').notNull(),created:integer('created').notNull()});
 export const securityNotices=sqliteTable('security_notices',{userId:text('user_id').primaryKey(),version:integer('version').notNull(),seenAt:integer('seen_at').notNull()});
+
+export const activityOverrides=sqliteTable('activity_overrides',{code:text('code').primaryKey(),json:text('json').notNull(),deleted:integer('deleted').notNull().default(0),revision:integer('revision').notNull().default(1),updated:integer('updated').notNull()});

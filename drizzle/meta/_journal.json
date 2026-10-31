@@ -29,6 +29,13 @@
       "when": 1793417877376,
       "tag": "0003_classy_chronomancer",
       "breakpoints": true
+    },
+    {
+      "idx": 4,
+      "version": "6",
+      "when": 1793419330750,
+      "tag": "0004_same_marvel_zombies",
+      "breakpoints": true
     }
   ]
 }
